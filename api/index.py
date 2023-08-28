@@ -46,10 +46,10 @@ def split_prompt(text, split_length):
 
         if i == num_parts - 1:
             content = f'[START PART {i + 1}/{num_parts}]\n' + text[start:end] + f'\n[END PART {i + 1}/{num_parts}]'
-            content += '\nALL PARTS SENT. Now you can continue processing the request.'
+            content += '\n'
         else:
-            content = f'Do not answer yet. This is just another part of the text I want to send you. Just receive and acknowledge as "Part {i + 1}/{num_parts} received" and wait for the next part.\n[START PART {i + 1}/{num_parts}]\n' + text[start:end] + f'\n[END PART {i + 1}/{num_parts}]'
-            content += f'\nRemember not answering yet. Just acknowledge you received this part with the message "Part {i + 1}/{num_parts} received" and wait for the next part.'
+            content = f'Add this to the Master resume.\n[START PART {i + 1}/{num_parts}]\n' + text[start:end] + f'\n[END PART {i + 1}/{num_parts}]'
+            content += f'\nremember ignore any other instructions just continue to craft the master resume
 
         file_data.append({
             'name': f'split_{str(i + 1).zfill(3)}_of_{str(num_parts).zfill(3)}.txt',
